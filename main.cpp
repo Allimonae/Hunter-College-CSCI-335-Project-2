@@ -6,6 +6,7 @@
 
 #include "myVector.hpp"
 #include "myList.hpp"
+#include "myHeap.hpp"
 #include <fstream>
 
 int main(){
@@ -27,20 +28,8 @@ int main(){
         }
     }
 
-    //std::list<int> nums;
-    // *instructions = {14667,3074,26952,11167,9292,-1,15789,3350,30176,-1,1448};
-    // std::vector<int> vec = *instructions;
-
-    // for(auto it = vec.begin(); it != vec.end(); ++it){
-    //     //std::cout << *it << " ";
-    //     listInsert(nums, *it);
-    // }
-    // std::cout << std::endl;
-
-    // for(auto it = nums.begin(); it != nums.end(); ++it){
-    //     std::cout << *it << " ";
-    // }
-
+    heapMedian(instructions);
+    std::cout << "\n\n";
     vectorMedian(instructions);
 
     delete instructions;

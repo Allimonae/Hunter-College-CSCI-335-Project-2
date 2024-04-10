@@ -9,22 +9,21 @@
 
 #include <iostream>
 #include <vector>
-
-
+#include <list>
 
 /**
  * @post: inserts a number and maintains sorted ascending order of vector
  * @param: a vector of integers nums passed by reference
  * @param: an integer num to be inserted into nums
 */
-void insert(std::vector<int>& nums, int num);
+void listInsert(std::list<int>& nums, int num);
 /**
  * @post: pops median and returns it
  * @param: a vector of integers nums
  * @return: median of vector
 */
-int popMedian(std::vector<int>& instructions);
+int listPopMedian(std::list<int>& instructions);
 
-void vectorMedian (const std::vector<int> * instructions);
+void listMedian(const std::vector<int> * instructions);
 
 #endif

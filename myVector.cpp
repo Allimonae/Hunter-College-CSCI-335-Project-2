@@ -23,15 +23,17 @@ void insert(std::vector<int>& nums, int num){
  * @param: size of vector
  * @return: median of vector
 */
+//******n is simply size of nums, fix
 int popMedian(std::vector<int>& nums, int n){
     if(n % 2 == 1){
         int med = nums[n/2];
         nums.erase(nums.begin() + n/2);
-        std::cout << "med" << med << std::endl;
         return med;
     }
     else{
-        return nums[n/2 - 1];
+        int med = nums[n/2 - 1];
+        nums.erase(nums.begin() + n/2 - 1);
+        return med;
     }
 }
 
@@ -46,17 +48,13 @@ void vectorMedian(const std::vector<int> * instructions){
     
     for(auto it = vec.begin(); it != vec.end(); ++it){
         if (*it == -1){
-            std::cout << popMedian(sortedVec, size) << std::endl;
+            std::cout << popMedian(sortedVec, size) << " ";
             size--;
         }
         else{
             insert(sortedVec, *it);
             size++;
         }
-    }
-
-    for(auto it = sortedVec.begin(); it != sortedVec.end(); ++it){
-        std::cout << *it << " ";
     }
 }
 

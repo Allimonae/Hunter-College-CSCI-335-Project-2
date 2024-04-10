@@ -21,7 +21,7 @@ void insert(std::vector<int>& nums, int num);
  * @param: a vector of integers nums
  * @return: median of vector
 */
-int popMedian(std::vector<int>& instructions);
+int popMedian(std::vector<int>& nums, int n);
 
 void vectorMedian (const std::vector<int> * instructions);
 

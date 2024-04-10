@@ -16,11 +16,8 @@ int main(){
         std::cerr << "File cannot be opened for reading" << std::endl;
         exit(1);
     }
-    std::string junk;
     std::string line;
-    
     std::string instr, token;
-    getline(file, junk);
     while(file >> instr >> token){
         if (instr == "insert"){
             instructions->push_back(stoi(token));
@@ -30,12 +27,19 @@ int main(){
         }
     }
 
-    *instructions = {14667,3074,26952,11167,9292,-1,15789,3350,30176,-1,1448};
-    std::vector<int> vec = *instructions;
-    for(auto it = vec.begin(); it != vec.end(); ++it){
-        std::cout << *it << " ";
-    }
-    std::cout << std::endl;
+    //std::list<int> nums;
+    // *instructions = {14667,3074,26952,11167,9292,-1,15789,3350,30176,-1,1448};
+    // std::vector<int> vec = *instructions;
+
+    // for(auto it = vec.begin(); it != vec.end(); ++it){
+    //     //std::cout << *it << " ";
+    //     listInsert(nums, *it);
+    // }
+    // std::cout << std::endl;
+
+    // for(auto it = nums.begin(); it != nums.end(); ++it){
+    //     std::cout << *it << " ";
+    // }
 
     vectorMedian(instructions);
 

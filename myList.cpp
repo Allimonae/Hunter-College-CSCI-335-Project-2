@@ -26,11 +26,11 @@ void listInsert(std::list<int>& nums, int num){
  * @param: size of vector
  * @return: median of vector
 */
-int listPopMedian(std::list<int>& nums, int n){
+int listPopMedian(std::list<int>& nums){
     auto slow = nums.begin();
     auto fast = nums.begin();
 
-    while (fast != nums.end() && std::next(fast) != nums.end()) {
+    while (fast != nums.end() && std::next(fast) != nums.end() && std::next(std::next(fast)) != nums.end()) {
         ++slow;                 // Move slow pointer one step
         std::advance(fast, 2);  // Move fast pointer two steps
     }
@@ -45,18 +45,15 @@ void listMedian(const std::vector<int> * instructions){
         return;
     }
 
-    int size = 0;
     std::vector<int> vec = *instructions;
     std::list<int> sortedList;
     
     for(auto it = vec.begin(); it != vec.end(); ++it){
         if (*it == -1){
-            std::cout << listPopMedian(sortedList, size) << std::endl;
-            size--;
+            std::cout << listPopMedian(sortedList) << " ";
         }
         else{
             listInsert(sortedList, *it);
-            size++;
         }
     }
 }

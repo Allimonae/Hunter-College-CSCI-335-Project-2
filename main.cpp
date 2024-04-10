@@ -28,7 +28,19 @@ int main(){
         }
     }
 
-    heapMedian(instructions);
+    // std::list<int> nums;
+    // *instructions = {14667, 3074, 11294, 26952, 11167}; // 8956, 9292, 15789, 10697, 3350, 30176};
+    // std::vector<int> vec = *instructions;
+
+    // for(auto it = vec.begin(); it != vec.end(); ++it){
+    //     listInsert(nums, *it);
+    // }
+    // for(auto it = nums.begin(); it != nums.end(); ++it){
+    //     std::cout << *it << " ";
+    // }
+    // std::cout << "\n" << listPopMedian(nums);
+
+    listMedian(instructions);
     std::cout << "\n\n";
     vectorMedian(instructions);
 

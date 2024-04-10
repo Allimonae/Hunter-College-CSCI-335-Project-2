@@ -1,43 +1,43 @@
+/**
+ * CSCI 335 Project 2
+ * Allison Lee
+ * main.cpp will be is a testing function that will convert an input file into the format shown in testinput_in_integer_format.txt
+*/
+
 #include "myVector.hpp"
+#include "myList.hpp"
 #include <fstream>
 
 int main(){
-    // std::ifstream file("testinput.txt");
-    // if (file.fail()){
-    //     std::cerr << "File cannot be opened for reading" << std::endl;
-    //     exit(1);
-    // }
-    // std::string junk;
-    // std::string line;
-    
-    // std::string instr, token;
-    // getline(file, junk);
-    // while(file >> instr >> token){
-    //     if (instr == "insert"){
-    //         test.insert(stoi(token));
-    //     }
-    //     else if (instr == "pop"){
-    //         test.popMedian();
-    //     }
-    // }
+    std::vector<int> *instructions = new std::vector<int>;
 
-    // test.printElements();
-    std::vector<int> nums;
-    vectorInsert(nums, 14667);
-    std::cout << nums.size();
-    vectorInsert(nums, 3074);
-    vectorInsert(nums, 11294);
-    vectorInsert(nums, 26952);
-    // 11167
-    // 8956
-    // 9292
-    // 15789
-    // 10697
-    // 3350
-    // 30176)
-    std::cout << nums.size();
-    for (auto it = nums.begin(); it != nums.end(); ++it){
-        std::cout << *it << ", ";
+    std::ifstream file("testinput.txt");
+    if (file.fail()){
+        std::cerr << "File cannot be opened for reading" << std::endl;
+        exit(1);
+    }
+    std::string junk;
+    std::string line;
+    
+    std::string instr, token;
+    getline(file, junk);
+    while(file >> instr >> token){
+        if (instr == "insert"){
+            instructions->push_back(stoi(token));
+        }
+        else if (instr == "pop"){
+            instructions->push_back(-1);
+        }
     }
 
+    *instructions = {14667,3074,26952,11167,9292,-1,15789,3350,30176,-1,1448};
+    std::vector<int> vec = *instructions;
+    for(auto it = vec.begin(); it != vec.end(); ++it){
+        std::cout << *it << " ";
+    }
+    std::cout << std::endl;
+
+    vectorMedian(instructions);
+
+    delete instructions;
 }

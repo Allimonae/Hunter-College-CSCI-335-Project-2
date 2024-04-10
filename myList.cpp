@@ -1,10 +1,10 @@
 /**
  * CSCI 335 Project 2
  * Allison Lee
- * myVector.cpp, containing the function void vectorMedian (const std::vector<int> * instructions)
+ * myList.cpp, containing the function void listMedian (const std::vector<int> * instructions)
 */
 
-#include "myVector.hpp"
+#include "myList.hpp"
 #include <algorithm>
 
 /**

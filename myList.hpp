@@ -1,14 +1,16 @@
 /**
  * CSCI 335 Project 2
  * Allison Lee
- * myVector.hpp, containing the prototypes* of the functions in myVector.cpp
+ * myList.hpp, containing the prototypes* of the functions in myList.cpp
 */
 
-#ifndef MY_VECTOR_CPP
-#define MY_VECTOR_CPP
+#ifndef MY_LIST_CPP
+#define MY_LIST_CPP
 
 #include <iostream>
 #include <vector>
+
+
 
 /**
  * @post: inserts a number and maintains sorted ascending order of vector

@@ -8,9 +8,9 @@
 #include <algorithm>
 
 /**
- * @post: perform binary serach insertion into a sorted vector
- * @param: a vector of integers nums
- * @param: an integer num to be inserted into nums
+ * @post:   linear search through linked list
+ * @param:  a linked list of integers nums passed by reference
+ * @param:  an integer num to be inserted into nums
 */
 void listInsert(std::list<int>& nums, int num){
     auto it = nums.begin();
@@ -21,10 +21,10 @@ void listInsert(std::list<int>& nums, int num){
 }
 
 /**
- * @post: pops median from vector nums of size n and returns it
- * @param: a vector of integers nums
- * @param: size of vector
- * @return: median of vector
+ * @post:   removes median from list and returns it 
+ * @param:  a list of integers nums
+ * @return: if odd retrun middle number
+ *          if even return lesser of two middle numbers
 */
 int listPopMedian(std::list<int>& nums){
     auto slow = nums.begin();
@@ -40,6 +40,13 @@ int listPopMedian(std::list<int>& nums){
     return med;
 }
 
+/**
+ * @post:   creates a linked list and follows the instructions, inserting numbers and popping the median 
+ *          for each -1, removes the median from its container and print it out, followed by a space.
+ * @param:  a formated vector of integers providing instructions
+ *          any number other than -1 means insert number to ADT
+ *          -1 means pop median from ADT
+*/
 void listMedian(const std::vector<int> * instructions){
     if (instructions == nullptr){
         return;

@@ -45,6 +45,11 @@
         "stdexcept": "cpp",
         "streambuf": "cpp",
         "typeinfo": "cpp",
-        "list": "cpp"
+        "list": "cpp",
+        "__node_handle": "cpp",
+        "chrono": "cpp",
+        "ios": "cpp",
+        "queue": "cpp",
+        "stack": "cpp"
     }
 }

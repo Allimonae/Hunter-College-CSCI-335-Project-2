@@ -16,14 +16,14 @@
  * @param:  a vector of integers nums passed by reference
  * @param:  an integer num to be inserted into nums
 */
-void insert(std::vector<int>& nums, int num);
+void vectorInsert(std::vector<int>& nums, int num);
 
 /**
  * @post:   erases median from vector and returns it 
  * @param:  a vector of integers nums
  * @return: median of nums
 */
-int popMedian(std::vector<int>& nums);
+int vectorPopMedian(std::vector<int>& nums);
 
 /**
  * @post:   follows the instructions and prints out medians in the order they're popped

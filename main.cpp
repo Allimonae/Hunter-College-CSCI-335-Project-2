@@ -29,32 +29,14 @@ int main(){
             instructions->push_back(-1);
         }
     }
-    
-    // std::vector<int> vec = {14667, 3074, 11294, 26952, 11167, 8956, 9292, 15789, 10697, 3350, 30176};
-    // AvlTree small;
-    // AvlTree large;
+   
+    auto beg3 = std::chrono::high_resolution_clock::now();
 
-    // for (auto it = vec.begin(); it != vec.end(); ++it){
-    //     treeInsert(small, large, *it);
-    // }
-    
-    // std::cout << "small: "; 
-    // small.print(); 
-    // std::cout << std::endl;
-    // std::cout << "large: "; 
-    // large.print(); 
-    // std::cout << std::endl;
-    // std::cout << treePopMedian(small, large);
+    heapMedian(instructions);
 
-    auto beg = std::chrono::high_resolution_clock::now();
- 
-    treeMedian(instructions);
- 
+    auto end3 = std::chrono::high_resolution_clock::now();
+    auto duration3 = std::chrono::duration_cast<std::chrono::microseconds>(end3 - beg3);
+    std::cout << "\n\nElapsed Time: " << duration3.count() << " microseconds";
     
-    auto end = std::chrono::high_resolution_clock::now();
-    auto duration = std::chrono::duration_cast<std::chrono::microseconds>(end - beg);
-    std::cout << "\nElapsed Time: " << duration.count() << " microseconds";
-    
-
     delete instructions;
 }

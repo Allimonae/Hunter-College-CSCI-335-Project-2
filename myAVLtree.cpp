@@ -39,23 +39,25 @@ int treePopMedian(AvlTree& small, AvlTree& large){
 }
 
 void treeMedian(const std::vector<int> * instructions){
+    std::vector<int> vec;
+
     if (instructions == nullptr){
         return;
     }
 
-    std::vector<int> vec = *instructions;
-
-    AvlTree small;
-    AvlTree large;
+    AvlTree small; // AVL tree to store values smaller than or equal to median
+    AvlTree large; // AVL tree to store values greater than median
 
     for (auto it = instructions->begin(); it != instructions->end(); ++it){
         if (*it == -1){
-            std::cout << treePopMedian(small, large) << " ";
+            vec.push_back(treePopMedian(small, large));
         }
-        else{
+        else {
             treeInsert(small, large, *it);
         }
-
-        
+    }
+    
+    for (auto it = vec.begin(); it != vec.end(); ++it){
+        std::cout << *it << " ";
     }
 }

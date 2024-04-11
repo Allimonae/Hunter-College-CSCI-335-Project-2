@@ -48,20 +48,25 @@ int listPopMedian(std::list<int>& nums){
  *          -1 means pop median from ADT
 */
 void listMedian(const std::vector<int> * instructions){
+    std::vector<int> vec;
+
     if (instructions == nullptr){
         return;
     }
 
-    std::vector<int> vec = *instructions;
     std::list<int> sortedList;
     
-    for(auto it = vec.begin(); it != vec.end(); ++it){
+    for(auto it = instructions->begin(); it != instructions->end(); ++it){
         if (*it == -1){
-            std::cout << listPopMedian(sortedList) << " ";
+            vec.push_back(listPopMedian(sortedList));
         }
-        else{
+        else {
             listInsert(sortedList, *it);
         }
+    }
+
+     for (auto it = vec.begin(); it != vec.end(); ++it){
+        std::cout << *it << " ";
     }
 }
 

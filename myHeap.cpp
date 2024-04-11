@@ -50,22 +50,26 @@ int heapPopMedian(std::priority_queue<int>& small, std::priority_queue<int, std:
 }
 
 void heapMedian(const std::vector<int> * instructions){
+    std::vector<int> vec;
+    
     if (instructions == nullptr){
         return;
     }
 
-    std::vector<int> vec = *instructions;
+    std::priority_queue<int> small; // max heap to store values smaller than or equal to median
+    std::priority_queue<int, std::vector<int>, std::greater<int>> large; // min heap to store values greater than median
 
-    std::priority_queue<int> small;
-    std::priority_queue<int, std::vector<int>, std::greater<int>> large;
-
-    for(auto it = vec.begin(); it != vec.end(); ++it){
+    for(auto it = instructions->begin(); it != instructions->end(); ++it){
         if (*it == -1){
-            std::cout << heapPopMedian(small, large) << " ";
+            vec.push_back(heapPopMedian(small, large));
         }
-        else{
+        else {
             heapInsert(small, large, *it);
         }
+    }
+    
+    for (auto it = vec.begin(); it != vec.end(); ++it){
+        std::cout << *it << " ";
     }
 }
 

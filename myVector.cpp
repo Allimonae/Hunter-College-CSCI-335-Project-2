@@ -13,7 +13,7 @@
  * @param:  a vector of integers nums passed by reference
  * @param:  an integer num to be inserted into nums
 */
-void insert(std::vector<int>& nums, int num){
+void vectorInsert(std::vector<int>& nums, int num){
     // binary search through sorted vector
     auto it = std::lower_bound(nums.begin(), nums.end(), num);
     nums.insert(it, num);
@@ -25,7 +25,7 @@ void insert(std::vector<int>& nums, int num){
  * @return: if odd retrun middle number
  *          if even return lesser of two middle numbers
 */
-int popMedian(std::vector<int>& nums){
+int vectorPopMedian(std::vector<int>& nums){
     if(nums.size() % 2 == 1){
         int med = nums[nums.size()/2];
         nums.erase(nums.begin() + nums.size()/2);
@@ -46,20 +46,25 @@ int popMedian(std::vector<int>& nums){
  *          -1 means pop median from ADT
 */
 void vectorMedian(const std::vector<int> * instructions){
+    std::vector<int> vec;
+
     if (instructions == nullptr){
         return;
     }
 
-    std::vector<int> vec = *instructions;
     std::vector<int> sortedVec;
     
-    for(auto it = vec.begin(); it != vec.end(); ++it){
+    for (auto it = instructions->begin(); it != instructions->end(); ++it){
         if (*it == -1){
-            std::cout << popMedian(sortedVec) << " ";
+            vec.push_back(vectorPopMedian(sortedVec));
         }
         else{
-            insert(sortedVec, *it);
+            vectorInsert(sortedVec, *it);
         }
+    }
+
+    for (auto it = vec.begin(); it != vec.end(); ++it){
+        std::cout << *it << " ";
     }
 }
 

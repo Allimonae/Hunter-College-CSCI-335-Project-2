@@ -11,26 +11,27 @@
 #include <vector>
 
 /**
- * @post:   inserts a number into nums vector
- *          maintains sorted ascending order of vector
  * @param:  a vector of integers nums passed by reference
  * @param:  an integer num to be inserted into nums
+ * @post:   implements binary search to insert a number into nums vector
+ *          maintains sorted ascending order of vector
 */
 void vectorInsert(std::vector<int>& nums, int num);
 
 /**
- * @post:   erases median from vector and returns it 
  * @param:  a vector of integers nums
- * @return: median of nums
+ * @return: if odd return middle number
+ *          if even return lesser of two middle numbers
+ * @post:   erases median from vector and returns it 
 */
 int vectorPopMedian(std::vector<int>& nums);
 
 /**
- * @post:   follows the instructions and prints out medians in the order they're popped
- *          for each -1, removes the median from its container and print it out, followed by a space.
- * @param:  a formated vector of integers providing instructions
- *          any number other than -1 means insert number to ADT
- *          -1 means pop median from ADT
+ * @param:  a vector of instructions
+ * @post:   processes a vector of instructions, where each element represents either an integer value or -1. 
+ *          For each non-negative integer, it inserts it into a separate vector sortedVec while maintaining the sorted order. 
+ *          When encountering -1, it pops the median from the sortedVec and pushes it into another vector vec. 
+ *          Finally, it prints the elements of vec to the standard output.
 */
 void vectorMedian (const std::vector<int> * instructions);
 

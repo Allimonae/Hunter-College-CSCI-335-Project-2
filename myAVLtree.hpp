@@ -13,15 +13,18 @@
 
 class AvlTree{
 public:
+    // Default constructor
     AvlTree() : root{nullptr}
     {
     }
 
+    // Move constructor
     AvlTree(AvlTree &&rhs) : root{rhs.root}
     {
         rhs.root = nullptr;
     }
 
+    // Destructor
     ~AvlTree()
     {
         makeEmpty();
@@ -92,6 +95,9 @@ public:
         return size;
     }
 
+    /**
+     * print every element inorder
+    */
     void print(){
         inorder(root);
     }
@@ -123,11 +129,9 @@ private:
     // }
 
     /**
-     * Internal method to insert into a subtree.
-     * x is the item to insert.
-     * t is the node that roots the subtree.
-     * Set the new root of the subtree.
-     */
+     * internal method for print
+     * Traverses the tree inorder
+    */
     void inorder(AvlNode* root) {
         if (root != nullptr) {
             inorder(root->left);
@@ -135,6 +139,12 @@ private:
             inorder(root->right);
         }
     }
+    /**
+     * Internal method to insert into a subtree.
+     * x is the item to insert.
+     * t is the node that roots the subtree.
+     * Set the new root of the subtree.
+     */
 
     void insert(const int &x, AvlNode *&t)
     {
@@ -356,8 +366,31 @@ private:
     }
 };
 
+/**
+ * @param:  a avl tree small containing elements less than or equal to median
+ * @param:  a avl tree large containing elements greater than median
+ * @param:  an integer num to be inserted into nums
+ * @post:   insert a new element num into two trees (small and large) representing the lower and upper halves of the data stream, 
+ *          while ensuring that the median of the data stream is maintained.
+*/
 void treeInsert(AvlTree& small, AvlTree& large, int num);
+
+/**
+ * @param:  a avl tree small containing elements less than or equal to median
+ * @param:  a avl tree large containing elements greater than median
+ * @return: max element in small
+ * @post:   remove and return the median element from the data stream, which is stored in the small tree. 
+ *          Ensures that the trees remain balanced after the removal of the median element.
+*/
 int treePopMedian(AvlTree& small, AvlTree& large);
+
+/**
+ * @param:  a vector of instructions
+ * @post:   processes a vector of instructions, where each element represents either an integer value or -1. 
+ *          For each non-negative integer, it inserts it into either a tree small or tree large while maintaining the sorted order. 
+ *          When encountering -1, it pops the median from the small tree and pushes it into another vector vec. 
+ *          Finally, it prints the elements of vec to the standard output.
+*/
 void treeMedian(const std::vector<int> * instructions);
 
 #endif

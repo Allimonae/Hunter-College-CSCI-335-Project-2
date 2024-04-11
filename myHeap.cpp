@@ -8,9 +8,11 @@
 #include <algorithm>
 
 /**
- * @post: perform binary serach insertion into a sorted vector
- * @param: a vector of integers nums
- * @param: an integer num to be inserted into nums
+ * @param:  a maxHeap small containing elements less than or equal to median
+ * @param:  a minHeap large containing elements greater than median
+ * @param:  an integer num to be inserted into nums
+ * @post:   insert a new element num into two heaps (small and large) representing the lower and upper halves of the data stream, 
+ *          while ensuring that the median of the data stream is maintained.
 */
 void heapInsert(std::priority_queue<int>& small, std::priority_queue<int, std::vector<int>, std::greater<int>>& large, int num){
     // If both heaps are empty or the number is less than or equal to the current median, insert it into the max heap
@@ -22,7 +24,11 @@ void heapInsert(std::priority_queue<int>& small, std::priority_queue<int, std::v
     // Balance the heaps
     heapBalance(small, large);
 }
-
+/**
+ * @param:  a maxHeap small containing elements less than or equal to median
+ * @param:  a minHeap large containing elements greater than median
+ * @post: Balance the sizes of two heaps (small and large) such that the difference in size between them is at most 1. 
+*/
 void heapBalance(std::priority_queue<int>& small, std::priority_queue<int, std::vector<int>, std::greater<int>>& large){
     // If the size difference between the heaps is greater than 1, balance them
     while (small.size() > large.size() + 1) {
@@ -34,13 +40,14 @@ void heapBalance(std::priority_queue<int>& small, std::priority_queue<int, std::
         large.pop();
     }
 }
+
 /**
- * @post: pops median from vector nums of size n and returns it
- * @param: a vector of integers nums
- * @param: size of vector
- * @return: median of vector
+ * @param:  a maxHeap small containing elements less than or equal to median
+ * @param:  a minHeap large containing elements greater than median
+ * @return: top element in small
+ * @post:   remove and return the median element from the data stream, which is stored in the small heap. 
+ *          Ensures that the heaps remain balanced after the removal of the median element.
 */
-//******n is simply size of nums, fix
 int heapPopMedian(std::priority_queue<int>& small, std::priority_queue<int, std::vector<int>, std::greater<int>>& large){
     int med = small.top();
     small.pop();
@@ -49,6 +56,13 @@ int heapPopMedian(std::priority_queue<int>& small, std::priority_queue<int, std:
     return med;
 }
 
+/**
+ * @param:  a vector of instructions
+ * @post:   processes a vector of instructions, where each element represents either an integer value or -1. 
+ *          For each non-negative integer, it inserts it into either a max heap small or min heap large while maintaining the sorted order. 
+ *          When encountering -1, it pops the median from the sortedVec and pushes it into another vector vec. 
+ *          Finally, it prints the elements of vec to the standard output.
+*/
 void heapMedian(const std::vector<int> * instructions){
     std::vector<int> vec;
     

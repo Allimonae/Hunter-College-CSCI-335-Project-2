@@ -8,9 +8,10 @@
 #include <algorithm>
 
 /**
- * @post:   linear search through linked list
- * @param:  a linked list of integers nums passed by reference
+ * @param:  a list of integers nums passed by reference
  * @param:  an integer num to be inserted into nums
+ * @post:   implements linear search to insert a number into nums vector
+ *          maintains sorted ascending order of vector
 */
 void listInsert(std::list<int>& nums, int num){
     auto it = nums.begin();
@@ -21,10 +22,10 @@ void listInsert(std::list<int>& nums, int num){
 }
 
 /**
- * @post:   removes median from list and returns it 
  * @param:  a list of integers nums
- * @return: if odd retrun middle number
+ * @return: if odd return middle number
  *          if even return lesser of two middle numbers
+ * @post:   find and remove the median element from a doubly linked list using the slow and fast pointer technique.
 */
 int listPopMedian(std::list<int>& nums){
     auto slow = nums.begin();
@@ -41,11 +42,11 @@ int listPopMedian(std::list<int>& nums){
 }
 
 /**
- * @post:   creates a linked list and follows the instructions, inserting numbers and popping the median 
- *          for each -1, removes the median from its container and print it out, followed by a space.
- * @param:  a formated vector of integers providing instructions
- *          any number other than -1 means insert number to ADT
- *          -1 means pop median from ADT
+ * @param:  a vector of instructions
+ * @post:   processes a vector of instructions, where each element represents either an integer value or -1. 
+ *          For each non-negative integer, it inserts it into a separate list sortedList while maintaining the sorted order. 
+ *          When encountering -1, it pops the median from the sortedList and pushes it into a vector vec. 
+ *          Finally, it prints the elements of vec to the standard output.
 */
 void listMedian(const std::vector<int> * instructions){
     std::vector<int> vec;

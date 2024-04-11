@@ -15,7 +15,7 @@ int main(){
     // Reads from a file and populates a dynamic vector based on the instructions provided in the file
     std::vector<int> *instructions = new std::vector<int>;
 
-    std::ifstream file("testinput.txt");
+    std::ifstream file("input1.txt");
     if (file.fail()){
         std::cerr << "File cannot be opened for reading" << std::endl;
         exit(1);
@@ -35,7 +35,7 @@ int main(){
 
     auto beg = std::chrono::high_resolution_clock::now();
  
-    treeMedian(instructions);
+    vectorMedian(instructions);
     
     auto end = std::chrono::high_resolution_clock::now();
     auto duration = std::chrono::duration_cast<std::chrono::microseconds>(end - beg);

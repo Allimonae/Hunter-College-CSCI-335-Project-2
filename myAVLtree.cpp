@@ -39,7 +39,6 @@ int treePopMedian(AvlTree& small, AvlTree& large){
 }
 
 void treeMedian(const std::vector<int> * instructions){
-    std::cout << "hey";
     if (instructions == nullptr){
         return;
     }
@@ -50,7 +49,6 @@ void treeMedian(const std::vector<int> * instructions){
     AvlTree large;
 
     for (auto it = instructions->begin(); it != instructions->end(); ++it){
-        std::cout << "hey";
         if (*it == -1){
             std::cout << treePopMedian(small, large) << " ";
         }
